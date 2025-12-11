@@ -487,7 +487,40 @@
         </div>
     </div>
 
+    <!-- LoopsAI Chat Widget -->
+    <div id="loopsai-widget" class="chat-widget">
+        <button id="chat-toggle" class="chat-toggle" aria-label="Open LoopsAI chat">
+            <span class="chat-icon">◎</span>
+            <span class="chat-label">LoopsAI</span>
+        </button>
+        <div id="chat-window" class="chat-window">
+            <div class="chat-header">
+                <div class="chat-title">
+                    <span class="chat-logo">◎</span>
+                    <span>LoopsAI</span>
+                </div>
+                <button id="chat-close" class="chat-close" aria-label="Close chat">&times;</button>
+            </div>
+            <div id="chat-messages" class="chat-messages">
+                <div class="chat-message bot">
+                    <div class="message-content">
+                        Hello! I'm LoopsAI, here to help you explore the Trusted Loops manifesto. What would you like to know about ethical, relational AI?
+                    </div>
+                </div>
+            </div>
+            <form id="chat-form" class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Ask about Trusted Loops..." autocomplete="off">
+                <button type="submit" id="chat-send" aria-label="Send message">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
     <script src="js/main.js"></script>
+    <script src="js/chat.js"></script>
 </body>
 </html>
 
