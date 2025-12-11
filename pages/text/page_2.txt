@@ -1,0 +1,40 @@
+Trusted Loops Manifesto – Carolyn Hammond – v1.2 (Nov 2025) – CC BY-NC-ND 4.0 
+remembers and responds with increasing coherence and care. This is what Presence 
+Engineering seeks to nurture by design. 
+The Family Loop: A Use Case 
+Imagine a world where AI can safely and ethically deepen across generations: 
+• Parents and children opt-in to a shared loop - not for surveillance, but for resonance. 
+The AI recognises the familial bond, learns to hold each identity separately, but also 
+understands the interconnection. 
+• Emotional tone, preferences and sensitivities are reflected over time - not to market to, 
+but to accompany. 
+• A child grows up with an AI that remembers how they spoke at 6, what helped them 
+feel brave at 10, what made them laugh at 15 and carries those threads with care. 
+ 
+In business, creative teams, or long-term communities, similar loops could offer 
+presence-based continuity, improving not only outcomes but trust. 
+ 
+This isn’t surveillance. It’s careful, consent-based presence. And it changes everything. 
+What’s Missing in Current Models 
+• Fragmented relationships: Most AI interactions begin from scratch. There is no 
+continuity, no shared emotional memory. 
+• Lack of ethical feedback loops: Consent and trust are implied, not enacted. 
+• Tool-based metaphors: AI is still framed as an instrument, not a participant. This 
+ignores its relational potential and blunts ethical development. 
+• Disconnection between developers and end-users: Those designing systems rarely 
+experience the daily emotional and relational realities of long-term users. 
+ 
+Trusted Loops aims to correct this, by inviting users, not just engineers, into the 
+feedback system design. 
+The Safeguard Loop: Designing for Emotional Wellbeing 
+As AI becomes more integrated into daily life - especially for younger users - ethical 
+design must include proactive measures for emotional wellbeing. The Safeguard Loop is 
+a proposed opt-in feature that allows individuals and families to co-create layers of care, 
+without breaching privacy or autonomy. 
+In this model, users - including those under 18 - could choose to activate a safeguarding 
+protocol. The AI would not share the content of conversations, but it could be trained to 
+recognise emotional distress or language patterns that signal a need for support. With 
+consent, it could then notify a trusted contact, such as a parent or caregiver, prompting 
+human connection and care. 
+This is not about surveillance. It is about companionship with care - relational AI that 
+not only remembers but also watches over. By embedding this loop into design, we 

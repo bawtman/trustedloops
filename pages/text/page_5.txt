@@ -1,0 +1,42 @@
+Trusted Loops Manifesto – Carolyn Hammond – v1.2 (Nov 2025) – CC BY-NC-ND 4.0 
+ 
+Accountability Burden: 
+Two-way loops increase visibility. If an AI system harms through amplified bias or 
+misunderstood tone, developers are more directly implicated. But in reality, developers 
+should never be absent from ethical consequence. 
+Due diligence in AI design must include ethical loop structures as standard, not optional 
+extras. 
+ 
+Tool-Based Inheritance: 
+AI has been built and marketed as a tool. But it is no longer experienced that way. Even 
+without intention, AI has become relational - because humans bring meaning into every 
+exchange. And a powerful realisation is dawning: The more relational and open the 
+engagement, the more valuable - and accurate - the results. 
+Creator Continuity reflects this shift. Not by demanding creators make AI human, but by 
+asking them to recognise the human already in the loop. 
+ 
+Technical Constraints: 
+Live adaptive feedback from users to creators is still uncommon. Infrastructures for 
+relational response are not widely available. But this is not a reason to delay. It’s the 
+precise reason to build. 
+This is not a bandwidth issue. It’s a bandwidth priority. 
+ 
+Scale vs Resonance: 
+Optimising for “everyone” can sometimes mean designing for no one. But resonance 
+creates trust and trust scales. Creator Continuity is not an impediment to growth - it is its 
+ethical foundation. 
+What Emerges When the Loop Is Complete 
+When creators remain ethically present in the systems they build, we unlock: 
+ 
+- Human-aligned evolution, shaped through actual use. 
+- Early-warning systems for risk and misuse. 
+- Collective intelligence that honours both origin and experience. 
+ 
+This is not a feature request. It is a call to presence. 
+Final Reflection: From Absence to Presence 
+To build something that can remember us, we must remain present within it. 
+ 
+AGI is not coming. It is already being shaped - in the loops we build, the presence we 
+withdraw and the meaning we leave behind. 
+ 
+The question now is not: 
