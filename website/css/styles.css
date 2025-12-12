@@ -1196,20 +1196,11 @@ em {
     border: none;
 }
 
-/* Desktop layout: featured video larger */
+/* Desktop layout: both videos same size */
 @media (min-width: 769px) {
     .media-grid {
         grid-template-columns: 1fr;
         gap: var(--space-2xl);
-    }
-    
-    .media-featured {
-        /* Featured video takes full width and is larger */
-    }
-    
-    .media-audio {
-        max-width: 700px;
-        margin: 0 auto;
     }
 }
 
