@@ -34,6 +34,14 @@ function initNavigation() {
         });
     });
     
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+        }
+    });
+    
     // Navbar scroll effect
     let lastScroll = 0;
     window.addEventListener('scroll', function() {
