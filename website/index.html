@@ -31,6 +31,9 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!-- Reading Progress Bar -->
+    <div id="progress-bar" class="progress-bar"></div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -390,6 +393,30 @@
                         </iframe>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Substack Feed Section -->
+    <section id="substack" class="section section-substack">
+        <div class="container">
+            <div class="section-header">
+                <h2>Latest from Carolyn's Substack</h2>
+                <p class="section-subtitle">Thoughts on AI, creativity, and the future of human-machine collaboration</p>
+            </div>
+            <div id="substack-feed" class="substack-feed">
+                <div class="feed-loading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading posts...</p>
+                </div>
+            </div>
+            <div class="substack-cta">
+                <a href="https://carolynhammondart.substack.com" target="_blank" rel="noopener" class="btn btn-secondary">
+                    <span>Subscribe on Substack</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </section>

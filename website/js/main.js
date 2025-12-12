@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initPageModal();
     initScrollAnimations();
     initShareMenu();
+    initProgressBar();
+    initSubstackFeed();
 });
 
 /**
@@ -364,6 +366,70 @@ function initShareMenu() {
             }
         });
     }
+}
+
+/**
+ * Reading progress bar
+ */
+function initProgressBar() {
+    const progressBar = document.getElementById('progress-bar');
+    if (!progressBar) return;
+    
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        progressBar.style.width = scrollPercent + '%';
+    });
+}
+
+/**
+ * Substack Feed
+ */
+function initSubstackFeed() {
+    const feedContainer = document.getElementById('substack-feed');
+    if (!feedContainer) return;
+    
+    const FEED_URL = 'https://trustedloops-feed.bawtman.workers.dev';
+    
+    fetch(FEED_URL)
+        .then(response => {
+            if (!response.ok) throw new Error('Feed unavailable');
+            return response.json();
+        })
+        .then(data => {
+            if (!data.posts || data.posts.length === 0) {
+                feedContainer.innerHTML = '<div class="feed-error"><p>No posts found. Check back soon!</p></div>';
+                return;
+            }
+            
+            feedContainer.innerHTML = data.posts.map(post => `
+                <article class="substack-post">
+                    <div class="post-content">
+                        <time class="post-date">${post.date}</time>
+                        <h3 class="post-title">
+                            <a href="${post.link}" target="_blank" rel="noopener">${post.title}</a>
+                        </h3>
+                        <p class="post-excerpt">${post.description}</p>
+                        <a href="${post.link}" target="_blank" rel="noopener" class="post-link">
+                            Read more
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+            `).join('');
+        })
+        .catch(error => {
+            console.error('Error loading Substack feed:', error);
+            feedContainer.innerHTML = `
+                <div class="feed-error">
+                    <p>Unable to load posts right now.</p>
+                    <p><a href="https://carolynhammondart.substack.com" target="_blank" rel="noopener">Visit Carolyn's Substack directly →</a></p>
+                </div>
+            `;
+        });
 }
 
 /**
