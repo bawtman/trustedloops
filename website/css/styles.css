@@ -1166,6 +1166,15 @@ em {
     cursor: not-allowed;
 }
 
+.feedback-form .btn.btn-success {
+    background: #28a745;
+    border-color: #28a745;
+}
+
+.feedback-form .btn.btn-success:hover {
+    background: #28a745;
+}
+
 .form-status {
     margin-top: var(--space-md);
     padding: var(--space-md);
@@ -1173,14 +1182,6 @@ em {
     display: none;
     text-align: center;
     font-weight: 500;
-}
-
-.form-status.success {
-    display: block;
-    background: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-    animation: fadeInUp 0.3s ease-out;
 }
 
 .form-status.error {

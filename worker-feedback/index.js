@@ -106,7 +106,7 @@ export default {
         },
         body: JSON.stringify({
           from: "Trusted Loops <feedback@trustedloops.com>",
-          to: "enquiries@carolyn-hammond.co.uk",
+          to: "bawtman@gmail.com",
           reply_to: email,
           subject: `Trusted Loops Feedback from ${name}`,
           html: `

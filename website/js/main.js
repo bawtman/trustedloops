@@ -477,7 +477,7 @@ function initFeedbackForm() {
             const data = await response.json();
             
             if (response.ok) {
-                showStatus('Thank you! Your message has been sent.', 'success');
+                showButtonSuccess();
                 form.reset();
             } else {
                 showStatus(data.error || 'Failed to send message. Please try again.', 'error');
@@ -487,17 +487,24 @@ function initFeedbackForm() {
             showStatus('Failed to send message. Please try again later.', 'error');
         } finally {
             submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnText;
         }
     });
+    
+    function showButtonSuccess() {
+        submitBtn.innerHTML = '<span>✓ Message Sent!</span>';
+        submitBtn.classList.add('btn-success');
+        
+        // Reset button after 3 seconds
+        setTimeout(() => {
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.classList.remove('btn-success');
+        }, 3000);
+    }
     
     function showStatus(message, type) {
         const icon = type === 'success' ? '✓ ' : '⚠ ';
         statusDiv.textContent = icon + message;
         statusDiv.className = `form-status ${type}`;
-        
-        // Scroll the status into view
-        statusDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 }
 
