@@ -463,7 +463,7 @@ function initFeedbackForm() {
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<span>Sending...</span>';
         statusDiv.className = 'form-status';
-        statusDiv.style.display = 'none';
+        statusDiv.textContent = '';
         
         try {
             const response = await fetch(FEEDBACK_URL, {
