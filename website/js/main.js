@@ -492,8 +492,12 @@ function initFeedbackForm() {
     });
     
     function showStatus(message, type) {
-        statusDiv.textContent = message;
+        const icon = type === 'success' ? '✓ ' : '⚠ ';
+        statusDiv.textContent = icon + message;
         statusDiv.className = `form-status ${type}`;
+        
+        // Scroll the status into view
+        statusDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 }
 
