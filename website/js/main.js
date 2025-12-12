@@ -5,12 +5,55 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all components
+    initThemeToggle();
     initNavigation();
     initSmoothScroll();
     initPageModal();
     initScrollAnimations();
     initShareMenu();
 });
+
+/**
+ * Dark mode toggle functionality
+ */
+function initThemeToggle() {
+    const toggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    
+    // Check for saved preference or system preference
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+        html.setAttribute('data-theme', 'dark');
+    }
+    
+    if (toggle) {
+        toggle.addEventListener('click', function() {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            if (newTheme === 'dark') {
+                html.setAttribute('data-theme', 'dark');
+            } else {
+                html.removeAttribute('data-theme');
+            }
+            
+            localStorage.setItem('theme', newTheme);
+        });
+    }
+    
+    // Listen for system preference changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        if (!localStorage.getItem('theme')) {
+            if (e.matches) {
+                html.setAttribute('data-theme', 'dark');
+            } else {
+                html.removeAttribute('data-theme');
+            }
+        }
+    });
+}
 
 /**
  * Navigation functionality
