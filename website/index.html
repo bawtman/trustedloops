@@ -528,6 +528,35 @@
                     <p>These conversations — rooted in continuity, mutual shaping and emotional resonance — reflect the very principles this manifesto calls for.</p>
                 </div>
             </div>
+            
+            <!-- Feedback Form -->
+            <div class="feedback-section">
+                <h3>Get in Touch</h3>
+                <p>Have questions, thoughts, or feedback about Trusted Loops? We'd love to hear from you.</p>
+                <form id="feedback-form" class="feedback-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="feedback-name">Name</label>
+                            <input type="text" id="feedback-name" name="name" required placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="feedback-email">Email</label>
+                            <input type="email" id="feedback-email" name="email" required placeholder="your@email.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="feedback-message">Message</label>
+                        <textarea id="feedback-message" name="message" rows="5" required placeholder="Your message..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span>Send Message</span>
+                        <svg class="send-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                        </svg>
+                    </button>
+                    <div id="form-status" class="form-status"></div>
+                </form>
+            </div>
         </div>
     </section>
 

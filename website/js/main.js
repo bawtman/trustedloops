@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initShareMenu();
     initProgressBar();
     initSubstackFeed();
+    initFeedbackForm();
 });
 
 /**
@@ -430,6 +431,70 @@ function initSubstackFeed() {
                 </div>
             `;
         });
+}
+
+/**
+ * Feedback Form
+ */
+function initFeedbackForm() {
+    const form = document.getElementById('feedback-form');
+    if (!form) return;
+    
+    const FEEDBACK_URL = 'https://trustedloops-feedback.bawtman.workers.dev';
+    const statusDiv = document.getElementById('form-status');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.innerHTML;
+    
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const name = document.getElementById('feedback-name').value.trim();
+        const email = document.getElementById('feedback-email').value.trim();
+        const message = document.getElementById('feedback-message').value.trim();
+        
+        // Validate
+        if (!name || !email || !message) {
+            showStatus('Please fill in all fields.', 'error');
+            return;
+        }
+        
+        // Disable button and show loading
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Sending...</span>';
+        statusDiv.className = 'form-status';
+        statusDiv.style.display = 'none';
+        
+        try {
+            const response = await fetch(FEEDBACK_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email, message }),
+            });
+            
+            const data = await response.json();
+            
+            if (response.ok) {
+                showStatus('Thank you! Your message has been sent.', 'success');
+                form.reset();
+            } else {
+                showStatus(data.error || 'Failed to send message. Please try again.', 'error');
+            }
+        } catch (error) {
+            console.error('Form submission error:', error);
+            showStatus('Failed to send message. Please try again later.', 'error');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+        }
+    });
+    
+    function showStatus(message, type) {
+        statusDiv.textContent = message;
+        statusDiv.className = `form-status ${type}`;
+    }
 }
 
 /**
