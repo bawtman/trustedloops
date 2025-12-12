@@ -26,7 +26,7 @@ function initNavigation() {
         navToggle.classList.toggle('active');
     });
     
-    // Close mobile menu when clicking a link
+    // Close mobile menu when clicking a link (but not the language selector)
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
             navMenu.classList.remove('active');
@@ -34,8 +34,22 @@ function initNavigation() {
         });
     });
     
-    // Close mobile menu when clicking outside
+    // Close mobile menu when clicking outside (but not when interacting with select)
+    const langSelect = document.getElementById('language-select');
+    let selectOpen = false;
+    
+    if (langSelect) {
+        langSelect.addEventListener('focus', () => selectOpen = true);
+        langSelect.addEventListener('blur', () => {
+            setTimeout(() => selectOpen = false, 100);
+        });
+    }
+    
     document.addEventListener('click', function(e) {
+        // Don't close if select dropdown is open or being interacted with
+        if (selectOpen || e.target.closest('.lang-selector')) {
+            return;
+        }
         if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
             navMenu.classList.remove('active');
             navToggle.classList.remove('active');
