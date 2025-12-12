@@ -208,6 +208,45 @@ em {
     display: none;
 }
 
+/* Language Selector */
+.lang-selector {
+    margin-left: var(--space-sm);
+}
+
+.lang-selector select {
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background: var(--color-white);
+    color: var(--color-text);
+    font-size: 0.85rem;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: border-color var(--transition-fast);
+}
+
+.lang-selector select:hover {
+    border-color: var(--color-accent);
+}
+
+.lang-selector select:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+/* RTL Support */
+[dir="rtl"] {
+    text-align: right;
+}
+
+[dir="rtl"] .nav-menu {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .content-grid {
+    direction: rtl;
+}
+
 .nav-toggle {
     display: none;
     flex-direction: column;
