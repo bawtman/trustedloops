@@ -1313,6 +1313,61 @@ em {
 }
 
 /* ==========================================
+   Floating Social Links
+   ========================================== */
+.social-float {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 1400;
+}
+
+.social-float a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: var(--color-white);
+    border-radius: 50%;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    color: var(--color-primary-dark);
+    transition: all var(--transition-base);
+}
+
+.social-float a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    color: var(--color-accent);
+}
+
+.social-float svg {
+    transition: transform var(--transition-fast);
+}
+
+.social-float a:hover svg {
+    transform: scale(1.1);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .social-float {
+        bottom: 16px;
+        left: 16px;
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .social-float a {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* ==========================================
    LoopsAI Chat Widget
    ========================================== */
 .chat-widget {
