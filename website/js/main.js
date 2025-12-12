@@ -21,7 +21,8 @@ function initNavigation() {
     const navLinks = document.querySelectorAll('.nav-menu a');
     
     // Mobile menu toggle
-    navToggle.addEventListener('click', function() {
+    navToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
         navMenu.classList.toggle('active');
         navToggle.classList.toggle('active');
     });
@@ -34,22 +35,21 @@ function initNavigation() {
         });
     });
     
-    // Close mobile menu when clicking outside (but not when interacting with select)
+    // Prevent language selector from closing the menu
     const langSelect = document.getElementById('language-select');
-    let selectOpen = false;
+    const langSelector = document.querySelector('.lang-selector');
     
-    if (langSelect) {
-        langSelect.addEventListener('focus', () => selectOpen = true);
-        langSelect.addEventListener('blur', () => {
-            setTimeout(() => selectOpen = false, 100);
+    if (langSelector) {
+        // Stop all events from bubbling up from the language selector
+        ['click', 'touchstart', 'touchend', 'mousedown'].forEach(eventType => {
+            langSelector.addEventListener(eventType, function(e) {
+                e.stopPropagation();
+            });
         });
     }
     
+    // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
-        // Don't close if select dropdown is open or being interacted with
-        if (selectOpen || e.target.closest('.lang-selector')) {
-            return;
-        }
         if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
             navMenu.classList.remove('active');
             navToggle.classList.remove('active');
