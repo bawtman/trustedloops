@@ -36,6 +36,7 @@
 - [x] Reading progress bar
 - [x] Substack RSS feed integration
 - [x] Shortened navigation labels
+- [x] Feedback/contact form (with Resend email integration)
 
 ---
 
@@ -60,6 +61,7 @@ A comprehensive overview of everything built into Trusted Loops.
 | **Video Embed** | YouTube video introduction to Trusted Loops |
 | **Audio Embed** | YouTube audio discussion |
 | **Substack Feed** | Live feed of latest posts from Carolyn's Substack |
+| **Feedback Form** | Contact form with email delivery via Resend API |
 
 ### 🤖 AI Integration
 | Feature | Description |
