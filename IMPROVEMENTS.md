@@ -2,9 +2,6 @@
 
 ## Quick Wins
 
-- [ ] **Open Graph / Social Cards** - Add meta tags so links look good when shared on Twitter/LinkedIn/Facebook
-- [ ] **Social media links** - Add links to author's social profiles
-- [ ] **Dark mode toggle** - User preference for light/dark theme
 - [ ] **Reading progress bar** - Shows scroll progress through the manifesto
 - [ ] **Print stylesheet** - Optimized formatting when someone prints the page
 
@@ -18,7 +15,6 @@
 ## More Substantial
 
 - [ ] **Site search** - Search the manifesto content
-- [ ] **Social sharing buttons** - Quick share to Twitter/LinkedIn with pre-filled text
 - [ ] **Citation widget** - Let people copy formatted citations or embed quotes
 - [ ] **RSS feed** - For announcing updates to the manifesto
 
@@ -30,3 +26,10 @@
 - [x] Mobile-responsive hamburger menu
 - [x] Custom favicon (golden interlocking loops)
 - [x] GitHub repo + deployment pipeline
+- [x] Welsh (Cymraeg) language support
+- [x] Media embed sizing fix (both videos same size)
+- [x] Social media links (floating follow links for author)
+- [x] Social sharing buttons (X, LinkedIn, Facebook, Copy link)
+- [x] Dark mode toggle (with system preference detection)
+- [x] Site creator footer section
+- [x] Open Graph / Social Cards (for link previews when sharing)
