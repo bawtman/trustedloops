@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScroll();
     initPageModal();
     initScrollAnimations();
+    initShareMenu();
 });
 
 /**
@@ -239,6 +240,87 @@ function initScrollAnimations() {
         }
     `;
     document.head.appendChild(style);
+}
+
+/**
+ * Share menu toggle functionality
+ */
+function initShareMenu() {
+    const shareWrapper = document.querySelector('.share-wrapper');
+    const shareToggle = document.querySelector('.share-toggle');
+    const copyBtn = document.querySelector('.share-copy');
+    
+    if (!shareToggle || !shareWrapper) return;
+    
+    // Toggle menu on button click
+    shareToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        shareWrapper.classList.toggle('active');
+    });
+    
+    // Close when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!shareWrapper.contains(e.target)) {
+            shareWrapper.classList.remove('active');
+        }
+    });
+    
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            shareWrapper.classList.remove('active');
+        }
+    });
+    
+    // Copy link functionality
+    if (copyBtn) {
+        copyBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const url = 'https://trustedloops.com';
+            
+            // Try modern clipboard API first, fallback to execCommand
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(() => {
+                    showCopiedFeedback();
+                }).catch(() => {
+                    fallbackCopy(url);
+                });
+            } else {
+                fallbackCopy(url);
+            }
+            
+            function fallbackCopy(text) {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    document.execCommand('copy');
+                    showCopiedFeedback();
+                } catch (err) {
+                    console.error('Copy failed:', err);
+                }
+                document.body.removeChild(textarea);
+            }
+            
+            function showCopiedFeedback() {
+                copyBtn.classList.add('copied');
+                copyBtn.querySelector('span').textContent = 'Copied!';
+                
+                // Close menu after short delay to show feedback
+                setTimeout(() => {
+                    shareWrapper.classList.remove('active');
+                    // Reset button text after menu closes
+                    setTimeout(() => {
+                        copyBtn.classList.remove('copied');
+                        copyBtn.querySelector('span').textContent = 'Copy link';
+                    }, 300);
+                }, 600);
+            }
+        });
+    }
 }
 
 /**

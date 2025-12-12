@@ -1321,35 +1321,135 @@ em {
     left: 24px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     z-index: 1400;
 }
 
-.social-float a {
+.social-float > a,
+.social-float .share-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 44px;
     height: 44px;
     background: var(--color-white);
+    border: none;
     border-radius: 50%;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
-    color: var(--color-primary-dark);
+    cursor: pointer;
     transition: all var(--transition-base);
 }
 
-.social-float a:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+/* X/Twitter - black */
+.social-float > a[aria-label*="X"] {
+    color: #000000;
+}
+
+.social-float > a[aria-label*="X"]:hover {
+    background: #000000;
+    color: #ffffff;
+}
+
+/* LinkedIn - blue */
+.social-float > a[aria-label*="LinkedIn"] {
+    color: #0A66C2;
+}
+
+.social-float > a[aria-label*="LinkedIn"]:hover {
+    background: #0A66C2;
+    color: #ffffff;
+}
+
+/* Share button */
+.share-wrapper {
+    position: relative;
+}
+
+.share-toggle {
     color: var(--color-accent);
 }
 
-.social-float svg {
-    transition: transform var(--transition-fast);
+.share-toggle:hover {
+    background: var(--color-accent);
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
-.social-float a:hover svg {
-    transform: scale(1.1);
+.social-float > a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Share menu popup */
+.share-menu {
+    position: absolute;
+    bottom: 0;
+    left: calc(100% + 12px);
+    background: var(--color-white);
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+    padding: 12px;
+    min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-10px);
+    transition: all var(--transition-base);
+}
+
+.share-wrapper.active .share-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.share-menu-title {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.share-menu a,
+.share-menu button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 8px 10px;
+    border: none;
+    background: none;
+    border-radius: 8px;
+    color: var(--color-text);
+    font-size: 0.85rem;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: background var(--transition-fast);
+}
+
+.share-menu a:hover,
+.share-menu button:hover {
+    background: var(--color-bg-alt);
+}
+
+.share-menu a svg,
+.share-menu button svg {
+    flex-shrink: 0;
+}
+
+/* Brand colors in menu */
+.share-menu a[aria-label*="X"] svg { color: #000000; }
+.share-menu a[aria-label*="LinkedIn"] svg { color: #0A66C2; }
+.share-menu a[aria-label*="Facebook"] svg { color: #1877F2; }
+.share-menu button svg { color: var(--color-text-muted); }
+
+.share-copy.copied span {
+    color: var(--color-accent);
 }
 
 /* Mobile adjustments */
@@ -1358,12 +1458,23 @@ em {
         bottom: 16px;
         left: 16px;
         flex-direction: row;
-        gap: 10px;
+        gap: 8px;
     }
     
-    .social-float a {
+    .social-float > a,
+    .social-float .share-toggle {
         width: 40px;
         height: 40px;
+    }
+    
+    .share-menu {
+        bottom: calc(100% + 12px);
+        left: 0;
+        transform: translateY(10px);
+    }
+    
+    .share-wrapper.active .share-menu {
+        transform: translateY(0);
     }
 }
 
