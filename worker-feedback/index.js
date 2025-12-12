@@ -105,7 +105,7 @@ export default {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from: "Trusted Loops <onboarding@resend.dev>",
+          from: "Trusted Loops <feedback@trustedloops.com>",
           to: "enquiries@carolyn-hammond.co.uk",
           reply_to: email,
           subject: `Trusted Loops Feedback from ${name}`,
