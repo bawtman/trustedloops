@@ -3,6 +3,28 @@
  * Receives form submissions and sends email via Resend API
  */
 
+// Simple in-memory rate limiting (per-IP, resets on worker restart)
+const rateLimitMap = new Map();
+const RATE_LIMIT_WINDOW = 60 * 60 * 1000; // 1 hour
+const RATE_LIMIT_MAX = 5; // Max 5 submissions per hour per IP
+
+function checkRateLimit(ip) {
+  const now = Date.now();
+  const record = rateLimitMap.get(ip);
+  
+  if (!record || now - record.timestamp > RATE_LIMIT_WINDOW) {
+    rateLimitMap.set(ip, { timestamp: now, count: 1 });
+    return true;
+  }
+  
+  if (record.count >= RATE_LIMIT_MAX) {
+    return false;
+  }
+  
+  record.count++;
+  return true;
+}
+
 export default {
   async fetch(request, env, ctx) {
     // Handle CORS preflight
@@ -25,6 +47,21 @@ export default {
           "Access-Control-Allow-Origin": "*",
         },
       });
+    }
+
+    // Rate limiting
+    const clientIP = request.headers.get("CF-Connecting-IP") || "unknown";
+    if (!checkRateLimit(clientIP)) {
+      return new Response(
+        JSON.stringify({ error: "Too many submissions. Please try again later." }),
+        {
+          status: 429,
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
+      );
     }
 
     try {
@@ -68,7 +105,7 @@ export default {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from: "Trusted Loops <feedback@trustedloops.com>",
+          from: "Trusted Loops <onboarding@resend.dev>",
           to: "enquiries@carolyn-hammond.co.uk",
           reply_to: email,
           subject: `Trusted Loops Feedback from ${name}`,
