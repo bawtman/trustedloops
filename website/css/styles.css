@@ -2276,3 +2276,162 @@ em {
         max-height: 500px;
     }
 }
+
+/* ==========================================
+   About Page Styles
+   ========================================== */
+.about-page {
+    padding: var(--space-4xl) var(--space-lg);
+    min-height: calc(100vh - 200px);
+}
+
+.about-content {
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+}
+
+.about-header h1 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+}
+
+.about-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-3xl);
+    align-items: start;
+}
+
+.about-image {
+    position: sticky;
+    top: calc(var(--nav-height) + var(--space-xl));
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+}
+
+.about-text p {
+    margin-bottom: var(--space-lg);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.about-text p:last-of-type {
+    margin-bottom: var(--space-2xl);
+}
+
+.about-text strong {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.about-text em {
+    font-style: italic;
+    color: var(--color-accent);
+}
+
+.about-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-bottom: var(--space-2xl);
+}
+
+.link-button {
+    display: inline-block;
+    padding: var(--space-md) var(--space-xl);
+    background: var(--color-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background var(--transition-base), transform var(--transition-fast);
+}
+
+.link-button:hover {
+    background: var(--color-primary-light);
+    transform: translateY(-2px);
+}
+
+.back-link {
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--color-border);
+}
+
+.back-link a {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+}
+
+.back-link a:hover {
+    color: var(--color-accent-light);
+}
+
+/* Learn More Link in About Section */
+.learn-more-link {
+    display: inline-block;
+    margin-top: var(--space-sm);
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.learn-more-link:hover {
+    color: var(--color-accent-light);
+    transform: translateX(4px);
+}
+
+/* Responsive design for About page */
+@media (max-width: 900px) {
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+    
+    .about-image {
+        position: static;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .about-header h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-page {
+        padding: var(--space-2xl) var(--space-md);
+    }
+    
+    .about-header h1 {
+        font-size: 1.75rem;
+    }
+    
+    .about-text p {
+        font-size: 1rem;
+    }
+    
+    .about-links {
+        flex-direction: column;
+    }
+    
+    .link-button {
+        text-align: center;
+    }
+}
